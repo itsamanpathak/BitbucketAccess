@@ -20,7 +20,6 @@ class RepoAdapter(val context: Fragment, private val list: List<Any>) :
              item.name.text = repo.name
              item.desc.text = repo.des
              Glide.with(context).load(R.drawable.repo_icon)
-                 .sizeMultiplier(0.3f)
                  .into(item.icon)
 
             itemView.setOnClickListener {

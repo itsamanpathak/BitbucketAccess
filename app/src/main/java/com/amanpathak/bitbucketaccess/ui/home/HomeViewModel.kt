@@ -14,6 +14,7 @@ import com.amanpathak.bitbucketaccess.repo.Repository
 import com.amanpathak.bitbucketaccess.ui.signin.SignInViewModel
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager
 import com.amanpathak.bitbucketaccess.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.Utils
 
 class HomeViewModel(appContext : Application) : AndroidViewModel(appContext) {
 
@@ -31,9 +32,12 @@ class HomeViewModel(appContext : Application) : AndroidViewModel(appContext) {
                 repoList.value = it.repoList
             }
             is Repository.RepoEvent.OnError -> {
-                if(it.failedType == Repository.TYPE.GET_REPO_LIST){
-                    showProgress.value = false
+                showProgress.value = false
+                if(it.failedType == Repository.TYPE.GET_REPO_LIST && Utils.isNetworkConnected(appContext)){
                     event.value = HomeEvent.ShowSnackBar(it.errorValue, it.errorMessage)
+                }
+                else if(!Utils.isNetworkConnected(appContext)){
+                    event.value = HomeEvent.InternetNotConnected(appContext.getString(R.string.internet_not_connected), true)
                 }
             }
             else -> {}
@@ -44,7 +48,6 @@ class HomeViewModel(appContext : Application) : AndroidViewModel(appContext) {
 
     init {
         showProgress.value = true
-        repo.fetchRepoList()
         repo.event.observeForever(repoObserver)
     }
 
@@ -53,8 +56,18 @@ class HomeViewModel(appContext : Application) : AndroidViewModel(appContext) {
         repo.event.removeObserver(repoObserver)
     }
 
+    fun onRetryClick(){
+        showProgress.value = true
+        repo.onRetry()
+    }
+
+    fun fetchRepoList(){
+        repo.fetchRepoList()
+    }
+
 
     sealed class HomeEvent {
+        data class InternetNotConnected(val messageString: String?, val showRetry : Boolean) : HomeEvent()
         data class ShowSnackBar(val message: Int, val messageString: String?) : HomeEvent()
     }
 

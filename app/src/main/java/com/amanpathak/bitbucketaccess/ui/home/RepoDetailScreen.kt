@@ -17,14 +17,11 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class RepoDetailScreen : AppCompatActivity() {
-
+    private lateinit var binding: ActivityRepoDetailBinding
 
     companion object {
         val REPO_DETAIL_MODEL = "repo_detail_model"
     }
-
-
-    private lateinit var binding: ActivityRepoDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +42,7 @@ class RepoDetailScreen : AppCompatActivity() {
             val model : RepoModel = bdle.getParcelable(REPO_DETAIL_MODEL)!!
 
 
-            Glide.with(this).load(model.avatar).placeholder(R.drawable.ic_placeholder).into(binding.avatar)
+            Glide.with(this).load(model.avatar).placeholder(R.drawable.repo_placeholder).into(binding.avatar)
             binding.let { it ->
                 it.desc.text = model.des
                 it.createdOn.text = "Created on :${Utils.convertDate_DD_MM_YYYY(model.createdOn.toString())} "

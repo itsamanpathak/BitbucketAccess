@@ -9,6 +9,7 @@ import com.amanpathak.bitbucketaccess.network.model.RepoListNetworkResponse
 import com.amanpathak.bitbucketaccess.network.model.SignInNetworkResponse
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager
 import com.amanpathak.bitbucketaccess.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.Utils
 import retrofit2.Call
 import retrofit2.Response
 
@@ -82,6 +83,17 @@ class Repository(private val apiClient: ApiClient) {
                         t.message.toString(), R.string.generic_error_message)
                 }
             })
+    }
+
+    fun onRetry(){
+        when(currentTYPE){
+
+            TYPE.GET_REPO_LIST -> {
+               fetchRepoList()
+            }
+
+            else -> {}
+        }
     }
 
 
