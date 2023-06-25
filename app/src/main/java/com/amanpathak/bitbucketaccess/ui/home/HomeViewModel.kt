@@ -13,7 +13,7 @@ import com.amanpathak.bitbucketaccess.network.model.RepoListItem
 import com.amanpathak.bitbucketaccess.repo.Repository
 import com.amanpathak.bitbucketaccess.ui.signin.SignInViewModel
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager
-import com.example.test.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.SingleLiveEvent
 
 class HomeViewModel(appContext : Application) : AndroidViewModel(appContext) {
 

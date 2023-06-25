@@ -1,5 +1,9 @@
 package com.amanpathak.bitbucketaccess.network
 
+import androidx.annotation.Keep
+
+
+@Keep
 object JsonKeys {
 
     const val AVATAR = "avatar"

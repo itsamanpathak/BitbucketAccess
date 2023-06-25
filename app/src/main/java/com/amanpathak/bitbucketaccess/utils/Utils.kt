@@ -9,6 +9,7 @@ import java.util.Locale
 object Utils {
 
     fun convertDate_DD_MM_YYYY(dateString: String) : String {
+            if(dateString.isNullOrEmpty()) return ""
 
             val date = dateString.split(".")
 

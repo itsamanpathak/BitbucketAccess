@@ -2,16 +2,17 @@ package com.amanpathak.bitbucketaccess.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import androidx.annotation.Keep
 
 
 data class RepoModel(
-    val id : String,
-    val avatar : String,
-    val name : String,
-    val des : String,
-    val isPrivate : Boolean,
-    val createdOn : String,
-    val workspace : String,
+    val id : String? = "",
+    val avatar : String? = "",
+    val name : String? = "",
+    val des : String? ="",
+    val isPrivate : Boolean = false,
+    val createdOn : String? = "",
+    val workspace : String? = "",
 
 ) : Parcelable {
     constructor(parcel: Parcel) : this(

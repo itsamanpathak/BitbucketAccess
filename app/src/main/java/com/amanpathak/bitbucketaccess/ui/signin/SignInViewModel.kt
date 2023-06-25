@@ -15,7 +15,7 @@ import com.amanpathak.bitbucketaccess.network.ApiClient
 import com.amanpathak.bitbucketaccess.repo.Repository
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager.KEY_PROFILE_DETAIL
-import com.example.test.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.SingleLiveEvent
 
 
 class SignInViewModel(val appContext: Application) : AndroidViewModel(appContext) {
