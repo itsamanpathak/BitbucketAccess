@@ -13,6 +13,7 @@ import com.amanpathak.bitbucketaccess.databinding.FragmentHomeBinding
 import com.amanpathak.bitbucketaccess.model.RepoModel
 import com.amanpathak.bitbucketaccess.network.model.RepoListItem
 import com.amanpathak.bitbucketaccess.utils.AppNavigator
+import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment(), RepoAdapter.RepoAdapterInteraction {
     private lateinit var binding: FragmentHomeBinding
@@ -32,6 +33,7 @@ class HomeFragment : Fragment(), RepoAdapter.RepoAdapterInteraction {
 
     private fun listeners() {
 
+        viewModel.fetchRepoList()
         viewModel.repoList.observe(viewLifecycleOwner, Observer {
             if(it.isNotEmpty()){
                 val adapter = RepoAdapter(this, it)
@@ -41,7 +43,33 @@ class HomeFragment : Fragment(), RepoAdapter.RepoAdapterInteraction {
         })
 
 
+        viewModel.event.observe(viewLifecycleOwner, Observer {
+            when(it){
+
+                is HomeViewModel.HomeEvent.ShowSnackBar -> {
+                    if(!it.messageString.isNullOrEmpty()) {
+                        Snackbar.make(requireActivity().findViewById(android.R.id.content),it.messageString, Snackbar.LENGTH_LONG).show()
+                    }
+                }
+                is HomeViewModel.HomeEvent.InternetNotConnected -> {
+                    if(it.showRetry){
+                        val snackBar = Snackbar.make(requireActivity().findViewById(android.R.id.content),it.messageString.toString(), Snackbar.LENGTH_LONG)
+                        snackBar.setAction("Retry", View.OnClickListener {
+                            viewModel.onRetryClick()
+                        })
+                    }
+                }
+
+                else -> {}
+            }
+
+        })
+
     }
+
+
+
+
 
     override fun onRepoClick(repoItem: RepoModel) {
         val bundle = Bundle()

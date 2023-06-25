@@ -3,7 +3,6 @@ package com.amanpathak.bitbucketaccess.ui.signin
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.viewmodel.R
@@ -17,7 +16,6 @@ class SignInActivity : AppCompatActivity() {
     private val viewModel : SignInViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
         super.onCreate(savedInstanceState)
         binding = ActivitySigninBinding.inflate(layoutInflater)
         binding.root.isVisible = false

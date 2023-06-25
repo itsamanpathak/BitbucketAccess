@@ -1,4 +1,4 @@
-package com.example.test.utils
+package com.amanpathak.bitbucketaccess.utils
 
 /*
  *  Copyright 2017 Google Inc.
@@ -17,6 +17,7 @@ package com.example.test.utils
  */
 
 import android.util.Log
+import androidx.annotation.Keep
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData

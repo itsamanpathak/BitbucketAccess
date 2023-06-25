@@ -1,5 +1,6 @@
 package com.amanpathak.bitbucketaccess.network.model
 
+import androidx.annotation.Keep
 import com.amanpathak.bitbucketaccess.network.JsonKeys
 import com.google.gson.annotations.SerializedName
 import org.json.JSONObject

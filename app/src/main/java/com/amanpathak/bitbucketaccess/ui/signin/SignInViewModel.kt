@@ -13,9 +13,11 @@ import com.amanpathak.bitbucketaccess.R
 import com.amanpathak.bitbucketaccess.network.Api
 import com.amanpathak.bitbucketaccess.network.ApiClient
 import com.amanpathak.bitbucketaccess.repo.Repository
+import com.amanpathak.bitbucketaccess.ui.home.HomeViewModel
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager.KEY_PROFILE_DETAIL
-import com.example.test.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.Utils
 
 
 class SignInViewModel(val appContext: Application) : AndroidViewModel(appContext) {
@@ -42,8 +44,11 @@ class SignInViewModel(val appContext: Application) : AndroidViewModel(appContext
             }
             is Repository.RepoEvent.OnError -> {
                 showProgress.value = false
-                if(it.failedType == Repository.TYPE.SIGN_IN){
+                if(it.failedType == Repository.TYPE.SIGN_IN && Utils.isNetworkConnected(appContext)){
                     event.value = SignInEvent.ShowSnackBar(it.errorValue, it.errorMessage)
+                }
+                else if(!Utils.isNetworkConnected(appContext)){
+                    event.value = SignInEvent.ShowSnackBar(-1, appContext.getString(R.string.internet_not_connected))
                 }
             }
             else -> {}

@@ -1,14 +1,15 @@
 package com.amanpathak.bitbucketaccess.repo
 
+import androidx.annotation.Keep
 import com.amanpathak.bitbucketaccess.R
 import com.amanpathak.bitbucketaccess.model.RepoModel
 import com.amanpathak.bitbucketaccess.model.SignInModel
-import com.amanpathak.bitbucketaccess.network.Api
 import com.amanpathak.bitbucketaccess.network.ApiClient
 import com.amanpathak.bitbucketaccess.network.model.RepoListNetworkResponse
 import com.amanpathak.bitbucketaccess.network.model.SignInNetworkResponse
 import com.amanpathak.bitbucketaccess.utils.SharedPreferenceManager
-import com.example.test.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.SingleLiveEvent
+import com.amanpathak.bitbucketaccess.utils.Utils
 import retrofit2.Call
 import retrofit2.Response
 
@@ -82,6 +83,17 @@ class Repository(private val apiClient: ApiClient) {
                         t.message.toString(), R.string.generic_error_message)
                 }
             })
+    }
+
+    fun onRetry(){
+        when(currentTYPE){
+
+            TYPE.GET_REPO_LIST -> {
+               fetchRepoList()
+            }
+
+            else -> {}
+        }
     }
 
 
