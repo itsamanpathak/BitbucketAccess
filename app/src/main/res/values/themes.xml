@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BitbucketAccess" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/brand_color</item>
+        <item name="colorPrimaryVariant">@color/brand_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/brand_color</item>
+        <item name="colorSecondaryVariant">@color/brand_color</item>
+        <item name="colorOnSecondary">@color/brand_color</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="SplashScreenTheme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_round</item>
+        <item name="postSplashScreenTheme">@style/Theme.BitbucketAccess</item>
+    </style>
+    <style name="outline_text_input_layout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="fontFamily">@font/cera_pro_res</item>
+    </style>
+    <style name="outline_text_input_field_">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/cera_pro_regular</item>
+        <item name="android:inputType">textNoSuggestions</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">14dp</item>
+    </style>
+    <style name="contained_button" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/selector_contained_button</item>
+        <item name="android:fontFamily">@font/cera_pro_medium</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="backgroundTint">@color/brand_color</item>
+    </style>
+    <style name="Caption" parent="Widget.MaterialComponents.TextView">
+        <item name="android:fontFamily">@font/cera_pro_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.03</item>
+    </style>
+</resources>

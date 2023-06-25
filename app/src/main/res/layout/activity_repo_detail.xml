@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/white"
+    >
+
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="@dimen/dp10"
+        android:padding="5dp"
+        android:rotation="-90"
+        android:src="@drawable/ic_black_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7"
+        android:layout_width="5dp"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:id="@+id/repoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp60"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif"
+        android:text="Aman"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp20"
+        android:textStyle="bold"
+        android:transitionName="categoryTitle"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toStartOf="@id/guideline1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:layout_width="@dimen/dp100"
+        android:layout_height="@dimen/dp100"
+        android:layout_marginVertical="@dimen/dp15"
+        app:layout_constraintStart_toStartOf="@+id/repoName"
+        app:layout_constraintTop_toBottomOf="@+id/repoName" />
+
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp10"
+        android:ellipsize="end"
+        android:fontFamily="@font/cera_pro_regular"
+        android:text="Descssssss sjjs shh xhh xhhx hhsx hhx hhx hhx"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp18"
+        android:layout_marginVertical="@dimen/dp20"
+        android:transitionName="categoryTitle"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/repoName"
+        app:layout_constraintTop_toBottomOf="@+id/avatar" />
+
+
+    <TextView
+        android:id="@+id/isPrivate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp20"
+        android:ellipsize="end"
+        android:fontFamily="@font/cera_pro_regular"
+        android:text="Is Private Repo: True"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp18"
+        android:transitionName="categoryTitle"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/desc"
+        app:layout_constraintTop_toBottomOf="@id/desc" />
+
+
+    <TextView
+        android:id="@+id/createdOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:ellipsize="end"
+        android:fontFamily="@font/cera_pro_regular"
+        android:text="Created On: "
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp18"
+        android:transitionName="categoryTitle"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/isPrivate"
+        app:layout_constraintTop_toBottomOf="@id/isPrivate" />
+
+
+    <TextView
+        android:id="@+id/workspace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:ellipsize="end"
+        android:fontFamily="@font/cera_pro_regular"
+        android:text="Workspace: "
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp18"
+        android:transitionName="categoryTitle"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/createdOn"
+        app:layout_constraintTop_toBottomOf="@id/createdOn" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
