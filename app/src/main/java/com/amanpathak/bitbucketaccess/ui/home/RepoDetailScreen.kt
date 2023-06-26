@@ -45,7 +45,7 @@ class RepoDetailScreen : AppCompatActivity() {
             Glide.with(this).load(model.avatar).placeholder(R.drawable.repo_placeholder).into(binding.avatar)
             binding.let { it ->
                 it.desc.text = model.des
-                it.createdOn.text = "Created on :${Utils.convertDate_DD_MM_YYYY(model.createdOn.toString())} "
+                it.createdOn.text = "Created on : ${Utils.convertToDD_MM_YYYY(model.createdOn.toString())} "
                 it.repoName.text = model.name
                 it.isPrivate.text = "Is Private : ${model.isPrivate}"
                 it.workspace.text = "Workspace : ${model.workspace}"

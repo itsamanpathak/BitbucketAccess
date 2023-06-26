@@ -5,21 +5,24 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
 import java.lang.Exception
-import java.text.SimpleDateFormat
-import java.time.Instant
-import java.util.Date
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Locale
+
 
 object Utils {
 
-    fun convertDate_DD_MM_YYYY(dateString: String) : String {
-            if(dateString.isNullOrEmpty()) return ""
+    fun convertToDD_MM_YYYY(dateString: String): String {
+        try {
+            if (dateString.isEmpty()) return ""
 
             val date = dateString.split(".")
-
-            var spf =  SimpleDateFormat("YYYY-MM-dd'T'HH:mm:ss").parse(date[0])
-            val simpleDateFormat = SimpleDateFormat("dd MMM YYYY")
-            return simpleDateFormat.format(spf)
+            val dateTime = LocalDateTime.parse(date[0])
+            val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH)
+            return dateTime.format(formatter)
+        }catch (e : Exception){
+            return dateString
+        }
     }
 
     fun isNetworkConnected(context: Context): Boolean {
